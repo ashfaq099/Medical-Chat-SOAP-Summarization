@@ -1,0 +1,27 @@
+{
+  "model_name": "google/flan-t5-base",
+  "timestamp": "2026-02-10 14:41:41",
+  "rouge_scores": {
+    "rouge1": 0.5033209325176553,
+    "rouge2": 0.3003366652740824,
+    "rougeL": 0.3687773755600534,
+    "rougeLsum": 0.3689192987253713
+  },
+  "bertscore": {
+    "precision": 0.9076418876647949,
+    "recall": 0.8645365834236145,
+    "f1": 0.8854572772979736
+  },
+  "soap_component_coverage": {
+    "subjective": "40.0%",
+    "objective": "55.0%",
+    "assessment": "71.0%",
+    "plan": "17.0%"
+  },
+  "statistics": {
+    "mean_rouge_l": 0.3631100239529439,
+    "std_rouge_l": 0.07573002451399624,
+    "max_rouge_l": 0.6258823529411764,
+    "min_rouge_l": 0.18636363636363634
+  }
+}
