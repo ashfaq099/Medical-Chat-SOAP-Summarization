@@ -252,7 +252,7 @@ GenerationConfig(
 | **F1** | 0.8855 | 88.6% overall semantic alignment |
 
 **Interpretation:**
-- F1 > 0.88 indicates strong semantic preservation
+- F1 (0.88) indicates strong semantic preservation
 - High precision (90.8%) means low hallucination rate
 - Good recall (86.5%) shows comprehensive information capture
 
@@ -345,12 +345,12 @@ outputs/
 
 ### File Descriptions
 
-| File | Description | Size |
-|------|-------------|------|
-| `evaluation_results.json` | JSON with all metric scores and metadata | ~2 KB |
-| `detailed_predictions.csv` | CSV with input, generated, reference, and ROUGE scores | ~500 KB |
-| `evaluation_results.png` | 4-panel visualization (score distributions, component coverage) | ~200 KB |
-| `adapter_model.safetensors` | LoRA adapter weights (only 1.6M parameters) | ~6 MB |
+| File | Description | 
+|------|-------------|
+| `evaluation_results.json` | JSON with all metric scores and metadata | 
+| `detailed_predictions.csv` | CSV with input, generated, reference, and ROUGE scores | 
+| `evaluation_results.png` | 4-panel visualization (score distributions, component coverage) | 
+| `adapter_model.safetensors` | LoRA adapter weights (only 1.6M parameters) | 
 
 ### Accessing Results
 
@@ -404,13 +404,7 @@ set_seed(42)  # Applied throughout the notebook
 - **Evaluation (100 samples):** ~5 minutes
 - **Total:** ~55-60 minutes
 
-#### 5. Reproducibility Checklist
-- ✅ Random seed set (42)
-- ✅ Deterministic algorithms enabled where possible
-- ✅ Library versions documented
-- ✅ Hardware specifications recorded
-- ✅ Training hyperparameters fixed
-- ✅ Evaluation protocol standardized
+
 
 ---
 
