@@ -32,10 +32,6 @@ project/
 └── medical_dialogue_test.xlsx     # Test data
 ```
 
-### Data Characteristics
-- **Input length:** Medical dialogues (variable length, avg ~300-500 tokens)
-- **Output length:** SOAP summaries (avg ~100-150 tokens)
-- **Compression ratio:** Approximately 3:1 to 5:1
 
 ---
 
@@ -44,15 +40,14 @@ project/
 ### Prerequisites
 - **Python:** 3.10+
 - **Hardware:** GPU with CUDA support (Google Colab T4 used)
-- **RAM:** 16GB minimum
-- **Storage:** ~5GB for model and data
+
 
 ### 1. Environment Setup
 
 ```bash
 # Clone repository
-git clone <repository-url>
-cd medical-soap-summarization
+git clone https://github.com/ashfaq099/Technical-Skills-Assessment_UIU.git
+cd Technical-Skills-Assessment_UIU
 
 # Mount Google Drive (if using Colab)
 from google.colab import drive
@@ -109,8 +104,13 @@ jupyter notebook Ashfaqur_Rahman_Task_3B.ipynb
 ### Base Model
 - **Model Name:** `google/flan-t5-base`
 - **Architecture:** Sequence-to-Sequence Transformer (Encoder-Decoder)
-- **Parameters:** ~248 million total parameters
+  
 - **Source:** [Hugging Face Model Hub](https://huggingface.co/google/flan-t5-base)
+
+- **Base Parameters:** 247.58 million parameters
+- **With LoRA Adapters:** 249.35 million total parameters
+
+**Trainable Parameters:** 1.77M out of 249.35M total (0.71%)
 
 ### Why FLAN-T5-base?
 
@@ -163,7 +163,7 @@ LoraConfig(
 )
 ```
 
-**Trainable Parameters:** Only 1.60M out of 247.58M total (0.65%)
+**Trainable Parameters:** Only 1.77M out of 249.35M total (0.71%)
 
 #### 4. Training Hyperparameters
 
@@ -192,11 +192,11 @@ LoraConfig(
 #### 6. Generation Configuration
 ```python
 GenerationConfig(
-    max_length=256,
-    num_beams=4,              # Beam search for quality
-    early_stopping=True,
-    no_repeat_ngram_size=3,   # Avoid repetition
-    length_penalty=1.0
+    max_length=256,           # Maximum summary length
+    num_beams=4,              # Beam search with 4 beams
+    early_stopping=True,      # Stop when all beams finish
+    temperature=0.7,          # Not used (do_sample=False)
+    do_sample=False           # Deterministic beam search
 )
 ```
 
@@ -239,8 +239,8 @@ GenerationConfig(
 | **ROUGE-Lsum** | 0.3689 | 36.9% summary-level LCS |
 
 **Interpretation:**
-- ROUGE-1 > 0.50 indicates good keyword capture
-- ROUGE-2 > 0.30 shows decent phrasal consistency
+- ROUGE-1  indicates good keyword capture
+- ROUGE-2  shows decent phrasal consistency
 - ROUGE-L captures structural similarity
 
 #### BERTScore (Semantic Similarity)
@@ -338,9 +338,11 @@ outputs/
 ├── evaluation_results.png           # Visualization of score distributions
 └── model/
     └── medical_soap_finetuned/      # Fine-tuned LoRA adapters
-        ├── adapter_config.json
-        ├── adapter_model.safetensors
-        └── training_args.bin
+        ├── adapter_config.json      # adapter_model.safetensors 
+        ├── adapter_config.json     # LoRA settings
+        ├── tokenizer              # Tokenization files
+        ├── training_args.json      # Hyperparameters
+        └── training_results.json   # Metrics
 ```
 
 ### File Descriptions
