@@ -1,10 +1,10 @@
-# Medical Chat SOAP Summarization – Task 03(B)
+# Medical Chat SOAP Summarization 
 
 
 
 ## Project Overview
 
-This project addresses **Task 03(B): Fine-Tuning a Large Language Model for Medical Chat Summarization** from the Technical Skills Assessment. The objective is to fine-tune a pre-trained sequence-to-sequence Large Language Model (LLM) to generate concise, coherent, and clinically faithful **SOAP (Subjective, Objective, Assessment, Plan)** summaries from raw medical dialogue transcripts.
+This project addresses **Fine-Tuning a Large Language Model for Medical Chat Summarization** . The objective is to fine-tune a pre-trained sequence-to-sequence Large Language Model (LLM) to generate concise, coherent, and clinically faithful **SOAP (Subjective, Objective, Assessment, Plan)** summaries from raw medical dialogue transcripts.
 
 
 
@@ -492,7 +492,7 @@ This project utilizes the following libraries:
 - **Base Model:** Google FLAN-T5-base ([Hugging Face](https://huggingface.co/google/flan-t5-base))
 - **Framework:** HuggingFace Transformers and PEFT libraries
 - **Compute:** Google Colab (Tesla T4 GPU)
-- **Task Provider:** SmartAMR Technical Skills Assessment
+
 
 ---
 
