@@ -279,11 +279,11 @@ Analysis of 100 test samples:
 **Performance:** ROUGE-L > 0.60
 
 **Analysis:**
-- ✅ All SOAP components clearly identified
-- ✅ Medical terminology preserved accurately
-- ✅ Logical flow maintained (S → O → A → P)
-- ✅ Concise while retaining critical details
-- ✅ No hallucinated information
+- All SOAP components clearly identified
+- Medical terminology preserved accurately
+- Logical flow maintained (S → O → A → P)
+- Concise while retaining critical details
+- No hallucinated information
 
 **Success Factors:**
 - Clear, well-structured input dialogue
@@ -295,11 +295,11 @@ Analysis of 100 test samples:
 **Performance:** ROUGE-L < 0.20
 
 **Analysis:**
-- ⚠️ Subjective section captured but incomplete
-- ⚠️ Objective findings partially missed
-- ✅ Assessment identified correctly
-- ❌ Plan section very brief or missing
-- ⚠️ Some medical details lost in compression
+-  Subjective section captured but incomplete
+-  Objective findings partially missed
+-  Assessment identified correctly
+-  Plan section very brief or missing
+- Some medical details lost in compression
 
 **Failure Factors:**
 - Very long input dialogue (>600 tokens before truncation)
